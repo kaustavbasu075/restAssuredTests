@@ -1,0 +1,71 @@
+# ==============================================================================
+# Maven Build Artifacts
+# ==============================================================================
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# ==============================================================================
+# Test Execution Reports & Logs (TestNG, Surefire, Log4j2)
+# ==============================================================================
+logs/
+*.log
+test-output/
+surefire-reports/
+allure-results/
+allure-report/
+extent-reports/
+
+# ==============================================================================
+# Environment & Secret Files (Keep credentials off GitHub)
+# ==============================================================================
+*.env
+.env.*
+# Uncomment the lines below if your .properties files contain real passwords/API keys:
+# src/test/resources/*.properties
+# src/main/resources/*.properties
+
+# ==============================================================================
+# Java Compiled Files
+# ==============================================================================
+*.class
+*.jar
+*.war
+*.ear
+hs_err_pid*
+replay_pid*
+
+# ==============================================================================
+# IDEs (IntelliJ IDEA, Eclipse, VS Code)
+# ==============================================================================
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# VS Code
+.vscode/
+
+# ==============================================================================
+# OS Generated Files (macOS & Windows)
+# ==============================================================================
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Desktop.ini

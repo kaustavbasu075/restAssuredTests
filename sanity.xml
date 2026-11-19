@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org" >
+<suite name="RestAssured API Test Suite" verbose="1">
+
+    <test name="API Regression Tests">
+        <classes>
+            <class name="tests.AppTest" />
+        </classes>
+    </test>
+</suite>
