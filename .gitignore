@@ -29,8 +29,8 @@ extent-reports/
 *.env
 .env.*
 # Uncomment the lines below if your .properties files contain real passwords/API keys:
-# src/test/resources/*.properties
-# src/main/resources/*.properties
+src/test/resources/*.properties
+src/main/resources/*.properties
 
 # ==============================================================================
 # Java Compiled Files

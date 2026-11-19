@@ -1,0 +1,48 @@
+name: REST Assured API Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch: # Allows manual runs from the GitHub Actions tab
+
+jobs:
+  api-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out your repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Set up Java (JDK 27) and cache Maven dependencies for faster builds
+      - name: Set up JDK 27
+        uses: actions/setup-java@v4
+        with:
+          java-version: '27'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      # Recreates staging.properties on the runner using your GitHub Secrets
+      - name: Generate staging.properties from Secrets
+        run: |
+          mkdir -p src/test/resources
+          cat <<EOF > src/test/resources/staging.properties
+          base.url=${{ secrets.STAGING_BASE_URL }}
+          EOF
+
+      # 3. Run your TestNG suite via Maven
+      - name: Run API Test Suite
+        run: mvn test -Dtest=AppTest2#createUser  -Denv=staging
+
+      # 4. Upload Surefire & Log4j2 reports even if tests fail
+      - name: Upload Test Reports & Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports-and-logs
+          path: |
+            target/surefire-reports/
+            logs/
+          retention-days: 14

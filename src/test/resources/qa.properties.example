@@ -1,0 +1,4 @@
+base.url=https://dummyjson.com
+jwt.login.url=https://dummyjson.com
+jwt.username=your_username
+jwt.password=your_password
